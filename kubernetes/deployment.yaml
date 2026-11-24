@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-14-app
+  namespace: project-14
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project-14-app
+  template:
+    metadata:
+      labels:
+        app: project-14-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
